@@ -1,0 +1,45 @@
+{
+  "name": "ern-container-publisher-maven-cli",
+  "version": "1.0.0",
+  "description": "Electrode Native Maven CLI Container Publisher",
+  "main": "./dist/index.js",
+  "homepage": "http://www.electrode.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electrode-io/ern-container-publisher-maven-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/electrode-io/ern-container-publisher-maven-cli/issues"
+  },
+  "keywords": ["electrode", "ern", "react-native", "ern-container-publisher"],
+  "contributors": [
+    {
+      "name": "Benoit Lemaire",
+      "email": "blemaire@walmartlabs.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ern-container-publisher": "0.30.0",
+    "ern-core": "0.30.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.0.0",
+    "sinon": "^7.1.1",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.17.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register test/*.ts",
+    "build": "tsc",
+    "prepublish": "yarn build"
+  },
+  "engines": {
+    "node": ">=6"
+  }
+}
