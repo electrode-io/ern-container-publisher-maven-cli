@@ -12,14 +12,14 @@ describe('MavenCliPublisher', () => {
       const sut = new MavenCliPublisher()
       expect(sut.name).eql('maven-cli')
     })
-  }) 
+  })
 
   describe('platforms', () => {
     it('should return ios and android', () => {
       const sut = new MavenCliPublisher()
       expect(sut.platforms).deep.equal(['android', 'ios'])
     })
-  }) 
+  })
 
   describe('publicationUrl', () => {
     it('should build the correct publication url', () => {
