@@ -1,6 +1,7 @@
 # Electrode Native Maven CLI Container Publisher
 
 [![Build Status][1]][2]
+[![ci][3]][4]
 
 This publisher can be used to publish Android or iOS Electrode Native Containers to a local or remote Maven repository, using the `mvn` command.
 
@@ -113,3 +114,5 @@ publisher.publish(
 
 [1]: https://travis-ci.org/electrode-io/ern-container-publisher-maven-cli.svg?branch=master
 [2]: https://travis-ci.org/electrode-io/ern-container-publisher-maven-cli
+[3]: https://github.com/electrode-io/ern-container-publisher-maven-cli/workflows/ci/badge.svg
+[4]: https://github.com/electrode-io/ern-container-publisher-maven-cli/actions
