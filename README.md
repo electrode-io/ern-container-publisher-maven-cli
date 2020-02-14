@@ -1,15 +1,17 @@
 # Electrode Native Maven CLI Container Publisher
 
+[![Build Status][1]][2]
+
 This publisher can be used to publish Android or iOS Electrode Native Containers to a local or remote Maven repository, using the `mvn` command.
 
-This publisher is using the [deploy:deploy-file](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) Mojo of Maven. This means that this publisher can only publish a single file (`.zip` or `.jar` or any other single file).  
-Therefore, it cannot actually be used to publish a full Container project structure as such, but can be used to publish Container that have been transformed in some way (for example on iOS you nmight want to create a Fat Binary Container using a transformer, and publish the resulting zipped fat binary artifact to Maven).
+This publisher is using the [deploy:deploy-file](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) Mojo of Maven. This means that this publisher can only publish a single file (`.zip` or `.jar` or any other single file).\
+Therefore, it cannot actually be used to publish a full Container project structure as such, but can be used to publish Container that have been transformed in some way (for example on iOS you might want to create a Fat Binary Container using a transformer, and publish the resulting zipped fat binary artifact to Maven).
 
 ## Usage
 
-### **With `ern publish-container` CLI command**
+### With `ern publish-container` CLI command
 
-**Required**
+#### Required
 
 - `--publisher/-p` : `maven-cli`
 - `--platform` : `android` | `ios`
@@ -21,25 +23,25 @@ Therefore, it cannot actually be used to publish a full Container project struct
   - `groupId` : The Maven group id to be used for the Container (`-DgroupId` of `mvn` command)
   - `versionSuffix` [Optional] : Suffix to append to the version (for example `-SNAPSHOT` or `-RELEASE`)
   - `mavenCliPath` [Optional] : Absolute path to the 'mvn' command. Can be used in case the 'mvn' binary is not in PATH or to use a 'mvn' binary other that the one in PATH.
-  - `opts` [Optional]: Space delimited [Maven CLI options](http://maven.apache.org/ref/3.1.0/maven-embedder/cli.html#) to pass to the 'mvn' command. For example `-X -e -q`. 
+  - `opts` [Optional]: Space delimited [Maven CLI options](http://maven.apache.org/ref/3.1.0/maven-embedder/cli.html#) to pass to the 'mvn' command. For example `-X -e -q`.
 
-**Optional**
+#### Optional
 
-- `--containerPath` : Path to the Container to publish.  
+- `--containerPath` : Path to the Container to publish.\
 Defaults to the Electrode Native default Container Generation path (`~/.ern/containergen/out/[platform]` unless changed through config)
 
-- `--containerVersion/-v` : Version of the Container to publish.  
+- `--containerVersion/-v` : Version of the Container to publish.\
 Default to `1.0.0`
 
  The `ern publish-container` CLI command can be used as follow to manually publish a Container using the maven publisher :
 
-```bash
-$ ern publish-container --containerPath [pathToContainer] -p maven-cli -v [containerVersion] -u [mavenRepoUrl] -e '{"repositoryId":"[repositoryId]", "artifactId":"[artifactId]", "groupId":"[groupId], "filePath":"[filePath]"}'
-```  
+```sh
+ern publish-container --containerPath [pathToContainer] -p maven-cli -v [containerVersion] -u [mavenRepoUrl] -e '{"repositoryId":"[repositoryId]", "artifactId":"[artifactId]", "groupId":"[groupId], "filePath":"[filePath]"}'
+```
 
 Instead of passing the whole configuration on the command line for `--extra/-e`, it is also possible to use a file path to a json file holding the configuration, or a path to a file stored in the Cauldron. Check out the [ern publish-container](https://native.electrode.io/cli-commands/publish-container) command documentation for more info.
 
-### **With Cauldron**
+### With Cauldron
 
 Add to `pipeline`
 
@@ -56,7 +58,7 @@ Add to `pipeline`
 }
 ```
 
-### **Programatically**
+### Programatically
 
 ```js
 import MavenCliPublisher from 'ern-container-publisher-maven-clis'
@@ -89,7 +91,7 @@ publisher.publish(
        */
       filePath: string
       /**
-       * Suffix to append to the version 
+       * Suffix to append to the version
        * For example '-SNAPSHOT' / '-RELEASE'
        */
       versionSuffix?: string
@@ -108,3 +110,6 @@ publisher.publish(
   }
 })
 ```
+
+[1]: https://travis-ci.org/electrode-io/ern-container-publisher-maven-cli.svg?branch=master
+[2]: https://travis-ci.org/electrode-io/ern-container-publisher-maven-cli

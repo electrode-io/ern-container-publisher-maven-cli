@@ -17,7 +17,7 @@ export interface MavenCliPublisherConfigExtra {
    */
   filePath: string
   /**
-   * Suffix to append to the version 
+   * Suffix to append to the version
    * For example '-SNAPSHOT' / '-RELEASE'
    */
   versionSuffix?: string
@@ -33,4 +33,3 @@ export interface MavenCliPublisherConfigExtra {
    */
   opts?: string
 }
-  
