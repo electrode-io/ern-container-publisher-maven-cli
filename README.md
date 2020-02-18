@@ -33,7 +33,7 @@ Defaults to the Electrode Native default Container Generation path (`~/.ern/cont
 - `--containerVersion/-v` : Version of the Container to publish.\
 Default to `1.0.0`
 
- The `ern publish-container` CLI command can be used as follow to manually publish a Container using the maven publisher :
+The `ern publish-container` CLI command can be used as follow to manually publish a Container using the maven publisher:
 
 ```sh
 ern publish-container --containerPath [pathToContainer] -p maven-cli -v [containerVersion] -u [mavenRepoUrl] -e '{"repositoryId":"[repositoryId]", "artifactId":"[artifactId]", "groupId":"[groupId], "filePath":"[filePath]"}'
@@ -58,7 +58,7 @@ Add to `pipeline`
 }
 ```
 
-### Programatically
+### Programmatically
 
 ```js
 import MavenCliPublisher from 'ern-container-publisher-maven-clis'
